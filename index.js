@@ -14,6 +14,17 @@
 // WHEN I click on the links in the Table of Contents
 // THEN I am taken to the corresponding section of the README
 
+//notes from class
+// starter code!!!
+//how to get a license badge from markdown to git hub ?
+// actually renders markdown with badge and link
+//open back ticks for the temperate literal
+//object notation to go inside and get what we need (data.title)
+//inside index.js writeTofile - we need data
+// function writeToFile(fileName, generateMarkdown(data)) {}
+//HUGE HINT/HELP ^^
+
+
 // write individual functions for different questions and label them a variable of "questions"
 // if left blank, throw error message for user to put at least a place holder? or create placeholder if user leaves blank?
 //function to call every function in a row - possibly with for each loop
@@ -21,3 +32,60 @@
 //functions to edit the format of markdown - include social & deployed page links, place holder for gif demo, table of contents
 //Create a .gitignore file and include node_modules/ and .DS_Store/ so that your node_modules directory isn't tracked or uploaded to GitHub. Be sure to create your .gitignore file before installing any npm dependencies.
 //Make sure that your repo includes a package.json
+//use write to file from lesson 13 & 14 to append everything to readme file!! - find out how to append to markdown
+
+const inquirer = require('inquirer');
+const fs = require('fs');
+
+// const generateMarkdown;
+
+const questions = [
+    {
+        type: 'input',
+        message: "What is your GitHub username?",
+        name: 'username',
+    },
+    {
+        type: 'input',
+        message: "What is your GitHub username?",
+        name: 'username',
+    },
+    {
+        type: 'input',
+        message: "What is your GitHub username?",
+        name: 'username',
+    },
+    {
+        type: 'input',
+        message: "What is your GitHub username?",
+        name: 'username',
+    },
+    {
+        type: 'input',
+        message: "What is your GitHub username?",
+        name: 'username',
+    },
+    {
+        type: 'input',
+        message: "What is your GitHub username?",
+        name: 'username',
+    },
+]
+//     .then(function writeToFile(fileName, data)) => {
+//     console.log(data);
+//     fs.writeFile(fileName, data, err => {
+//         if (err) {
+//             return console.log(err);
+//         }
+//         console.log("Success! Your README.md file has been generated")
+//     });
+// }
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log("Success! Your README.md file has been generated")
+    });
+}
