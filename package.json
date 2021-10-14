@@ -19,5 +19,6 @@
   "homepage": "https://github.com/nicoledodge/READme-Generator#readme",
   "dependencies": {
     "inquirer": "^8.2.0"
-  }
+  },
+  "devDependencies": {}
 }

@@ -32,45 +32,81 @@
 //functions to edit the format of markdown - include social & deployed page links, place holder for gif demo, table of contents
 //Create a .gitignore file and include node_modules/ and .DS_Store/ so that your node_modules directory isn't tracked or uploaded to GitHub. Be sure to create your .gitignore file before installing any npm dependencies.
 //Make sure that your repo includes a package.json
+
+
+
 //use write to file from lesson 13 & 14 to append everything to readme file!! - find out how to append to markdown
-
-const inquirer = require('inquirer');
-const fs = require('fs');
-
+function init() {
+    const inquirer = require('inquirer');
+    const fs = require('fs');
+    const generateMarkdown = require('./generateMarkdown');
 // const generateMarkdown;
 
-const questions = [
-    {
-        type: 'input',
-        message: "What is your GitHub username?",
-        name: 'username',
-    },
-    {
-        type: 'input',
-        message: "What is your GitHub username?",
-        name: 'username',
-    },
-    {
-        type: 'input',
-        message: "What is your GitHub username?",
-        name: 'username',
-    },
-    {
-        type: 'input',
-        message: "What is your GitHub username?",
-        name: 'username',
-    },
-    {
-        type: 'input',
-        message: "What is your GitHub username?",
-        name: 'username',
-    },
-    {
-        type: 'input',
-        message: "What is your GitHub username?",
-        name: 'username',
-    },
-]
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: "What is your GitHub username?",
+                name: 'github',
+            },
+            {
+                type: 'input',
+                message: "What is the name of your GitHub repo?",
+                name: 'repo',
+            },
+            {
+                type: 'input',
+                message: "What is the title of your project?",
+                name: 'title',
+            },
+            {
+                type: 'link',
+                message: "What is your email?",
+                name: 'email'
+            },
+            {
+                type: 'input',
+                message: "Write a description of your project.",
+                name: 'description',
+            },
+            {
+                type: 'input',
+                message: "If applicable, describe the steps required to install your project for the Installation section.",
+                name: 'installation'
+            },
+            {
+                type: 'input',
+                message: "Provide instructions and examples of your project in use for the Usage section.",
+                name: 'usage'
+            },
+            {
+                type: 'input',
+                message: "If applicable, provide guidelines on how other developers can contribute to your project.",
+                name: 'contributing'
+            },
+            {
+                type: 'input',
+                message: "If applicable, provide any tests written for your application and provide examples on how to run them.",
+                name: 'tests'
+            },
+            {
+                type: 'list',
+                message: "Choose a license for your project.",
+                choices: ["MIT", 'Mozilla Public 2.0', "GNU General Public License 2.0", "Apache 2.0", "GNU General Public License 3.0", 'Boost Software License 1.0', 'BSD 3-Clause License','BSD 2-Clause License'],
+                name: 'license'
+            },
+        ])
+        .then((data) => {
+            // Create Markdown from data
+            // const markdown = generateMarkdown(data);
+            console.log(data);
+            fs.writeFile('README.md', generateMarkdown(data), (err) =>
+                err ? console.error(err) : console.log('Success!')
+            );
+        });
+}
+
+init();
 //     .then(function writeToFile(fileName, data)) => {
 //     console.log(data);
 //     fs.writeFile(fileName, data, err => {
@@ -80,12 +116,3 @@ const questions = [
 //         console.log("Success! Your README.md file has been generated")
 //     });
 // }
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => {
-        if (err) {
-            return console.log(err);
-        }
-
-        console.log("Success! Your README.md file has been generated")
-    });
-}
