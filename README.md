@@ -1,5 +1,5 @@
 # ReadME Generator using Node.js
-![Weather Demo](https://github.com/nicoledodge/Weather-Dashboard/blob/main/assets/weather%20demo.gif?raw=true)
+![README Demo](https://github.com/nicoledodge/READme-Generator/blob/main/assets/readme%20demo.gif?raw=true)
 
 ## Licenses
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
