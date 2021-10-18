@@ -100,7 +100,7 @@ function init() {
             // Create Markdown from data
             // const markdown = generateMarkdown(data);
             console.log(data);
-            fs.writeFile('README.md', generateMarkdown(data), (err) =>
+            fs.writeFile('READMEexample.md', generateMarkdown(data), (err) =>
                 err ? console.error(err) : console.log('Success!')
             );
         });

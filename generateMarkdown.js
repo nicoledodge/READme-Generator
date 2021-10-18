@@ -1,6 +1,7 @@
 
 const generateMarkdown = (data) => {
 
+    data.avatar_url = undefined;
     switch (data.license) {
         case 'Apache 2.0':
             data.license = `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
@@ -42,10 +43,6 @@ ${data.license}
   6. [License](#License)
   7. [GitHub](#GitHub)
   8. [E-mail](#Email)
-## Questions?
-### Contact me:
-Github: ${data.github}  
-Email: ${data.email}
 ## Description
 ${data.description} 
 ## Installation
@@ -55,9 +52,13 @@ ${data.usage}
 ## Contributing
 ${data.contributing}
 ## Tests
-${data.tests}`
-
+${data.tests}
+## Questions?
+Github: [${data.github}](@data.github)  
+Email: ${data.email}
+`
 }
 
 module.exports = generateMarkdown;
 
+// ![Developer Profile Picture](${data.avatar_url})
